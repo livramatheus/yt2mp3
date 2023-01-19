@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
+import "./App.css";
 
 const requestOptions = {
   method: 'GET',
@@ -41,10 +42,17 @@ function App() {
   }, [response]);
 
   return (
-    <div>
-      <input type="text" value={textInput} onChange={(e) => {
-        setTextInput(e.target.value);
-      }} />
+    <div id="app">
+      <h1>YouTube to MP3 Downloader</h1>
+
+      <input
+        type="text"
+        value={textInput}
+        placeholder="YouTube link here..."
+        onChange={(e) => {
+          setTextInput(e.target.value);
+        }}
+      />
 
       <button onClick={() => {
         const text = textInput.split("=")[1];
@@ -52,7 +60,6 @@ function App() {
           setId(text);
         }
       }}>Download</button>
-      
     </div>
   )
 }
