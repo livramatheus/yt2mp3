@@ -7,7 +7,7 @@
 
 body {
     background: #0172AF;
-    background: linear-gradient(45deg,#0172AF 0%, #74FEBD 100%);
+    background: linear-gradient(45deg,#DDDDDD 0%, #CCCCCC 100%);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -17,32 +17,60 @@ body {
 }
 
 #app {
+    background: #4970f0;
+    background: linear-gradient(90deg,#1fb3ed 0%, #116ac5 100%);
     display: flex;
     flex-direction: column;
-    width: 35rem;
+    align-items: center;
+    width: 22rem;
     gap: 3rem;
+    height: 80vh;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 18px 8px rgba(0, 0, 0, 0.1);
+}
+
+#app img {
+    width: 25%;
 }
 
 #app h1 {
     text-align: center;
+    /* font-size: 2.5rem; */
     color: white;
-    font-size: 3rem;
 }
 
 #app input {
     background: none;
     border: none;
     border-bottom: 2px solid white;
-    font-size: 2rem;
     color: white;
+    font-size: 1.2rem;
+    padding: 0.4rem 0.1rem;
     outline: none;
     transition: border 0.2s ease-in-out;
+    width: 98%;
+}
+
+#app span {
+    color: white;
+    font-size: 0.8rem;
 }
 
 #app input::placeholder {
     color: rgba(255, 255, 255, 0.8);
 }
 
-#app input:focus {
-    border-bottom: 5px solid white;
+#app button {
+    background-color: white;
+    height: 3rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #116ac5;
+    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    cursor: pointer;
 }
