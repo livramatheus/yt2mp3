@@ -51,7 +51,6 @@ function App() {
       </div>
 
       <div id="body">
-        <h2>Hey There!</h2>
         <input
           type="text"
           value={textInput}
