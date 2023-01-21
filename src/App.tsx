@@ -49,10 +49,13 @@ function App() {
 
   return (
     <div id="app">
-      <img src={Logo} />
-      <h1>YT2MP3</h1>
+      <div id="logo">
+        <img src={Logo} />
+        <h2>YT2MP3</h2>
+      </div>
 
-      <div>
+      <div id="body">
+        <h2>Hey There!</h2>
         <input
           type="text"
           value={textInput}
@@ -72,6 +75,7 @@ function App() {
             setId(text);
           }
         }}
+        className="disabled"
         disabled={disabled}
       >
           Download
