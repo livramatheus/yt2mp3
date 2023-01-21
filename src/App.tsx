@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-import fileDownload from "js-file-download";
 import "./App.css";
 import Logo from "./assets/logo.png";
+
+interface Response {
+  link: string
+}
 
 const requestOptions = {
   method: 'GET',
@@ -11,13 +14,13 @@ const requestOptions = {
   headers: {
     'X-RapidAPI-Key': 'fafea167f6msh4ab2ecc90e79ae2p1db2b0jsn5f6687582230',
     'X-RapidAPI-Host': 'youtube-mp36.p.rapidapi.com'
-  }
-};
+  },
+}
 
 function App() {
   const [textInput, setTextInput] = useState('');
   const [id, setId] = useState('');
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<null | Response>(null);
   const [disabled, setDisabled] = useState(false);
   
   useEffect(() => {
@@ -32,7 +35,11 @@ function App() {
               setResponse(res.data);
               clearInterval(interval);
               setDisabled(false);
-              fileDownload(res.data.link, `${res.data.title}.mp3`);
+            } else if (res.status === 200 && res.data.status === "fail") {
+              alert('Invalid video link');
+              clearInterval(interval);
+              setDisabled(false);
+              setTextInput('');
             }
           }, 1000);
       }
@@ -43,7 +50,7 @@ function App() {
 
   useEffect(() => {
     if (response) {
-      console.log(response);
+      window.location.href = response.link;
     }
   }, [response]);
 
@@ -75,7 +82,7 @@ function App() {
             setId(text);
           }
         }}
-        className="disabled"
+        className={disabled ? "disabled" : ""}
         disabled={disabled}
       >
           Download
