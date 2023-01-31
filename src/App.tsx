@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./App.css";
-import Logo from "./assets/logo.png";
 import Body from "./components/Body";
+import Logo from "./components/Logo";
 import { fetch } from "./services/ApiRequest";
 
 interface MP3 {
@@ -51,11 +51,8 @@ function App() {
 
   return (
     <div id="app">
-      <div id="logo">
-        <img src={Logo} />
-        <h2>YT2MP3</h2>
-      </div>
-
+      <Logo />
+    
       <Body
         textInput={textInput}
         setTextInput={setTextInput}
