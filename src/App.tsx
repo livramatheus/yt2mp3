@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./App.css";
 import Body from "./components/Body";
+import DownloadBtn from "./components/DownloadBtn";
 import Logo from "./components/Logo";
 import { fetch } from "./services/ApiRequest";
 
@@ -58,18 +59,11 @@ function App() {
         setTextInput={setTextInput}
       />
       
-      <button
-        onClick={() => {
-          const text = textInput.split("=")[1];
-          if (text) {
-            setId(text);
-          }
-        }}
-        className={disabled ? "disabled" : ""}
+      <DownloadBtn
         disabled={disabled}
-      >
-          Download
-        </button>
+        setId={setId}
+        textInput={textInput}
+      />
     </div>
   )
 }
