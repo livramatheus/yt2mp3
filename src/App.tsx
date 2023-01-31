@@ -23,21 +23,21 @@ function App() {
   useEffect(() => {
     if (id) {
       const fetchData = () => {
-          let interval = setInterval(async function() {
-            setDisabled(true);
-            const res = await fetch(id);
-            
-            if (res.status === 200 && res.data.status === "ok") {
-              setResponse(res.data);
-              clearInterval(interval);
-              setDisabled(false);
-            } else if (res.status === 200 && res.data.status === "fail") {
-              alert('Invalid video link');
-              clearInterval(interval);
-              setDisabled(false);
-              setTextInput('');
-            }
-          }, 1000);
+        let interval = setInterval(async function() {
+          setDisabled(true);
+          const res = await fetch(id);
+          
+          if (res.status === 200 && res.data.status === "ok") {
+            setResponse(res.data);
+            clearInterval(interval);
+            setDisabled(false);
+          } else if (res.status === 200 && res.data.status === "fail") {
+            alert('Invalid video link');
+            clearInterval(interval);
+            setDisabled(false);
+            setTextInput('');
+          }
+        }, 1000);
       }
 
       fetchData();
