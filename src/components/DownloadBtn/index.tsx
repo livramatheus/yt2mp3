@@ -7,14 +7,17 @@ interface PropsData {
 function DownloadBtn(props: PropsData) {
   let { disabled, textInput, setId } = props;
 
+  function onClickDownloadBtn() {
+    const text = textInput.split("=")[1];
+    
+    if (text) {
+      setId(text);
+    }
+  }
+
   return (
     <button
-      onClick={() => {
-        const text = textInput.split("=")[1];
-        if (text) {
-          setId(text);
-        }
-      }}
+      onClick={() => onClickDownloadBtn()}
       className={disabled ? "disabled" : ""}
       disabled={disabled}
     >

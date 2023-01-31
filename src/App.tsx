@@ -4,20 +4,12 @@ import Body from "./components/Body";
 import DownloadBtn from "./components/DownloadBtn";
 import Logo from "./components/Logo";
 import { fetch } from "./services/ApiRequest";
-
-interface MP3 {
-  duration: number;
-  link: string;
-  msg: string;
-  progress: number;
-  status: string;
-  title: string;
-}
+import Mp3Response from "./services/ApiRequest/Mp3Response";
 
 function App() {
   const [textInput, setTextInput] = useState<string>('');
   const [id, setId] = useState('');
-  const [response, setResponse] = useState<null | MP3>(null);
+  const [response, setResponse] = useState<null | Mp3Response>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
   
   useEffect(() => {
