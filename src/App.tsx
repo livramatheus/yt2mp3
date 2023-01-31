@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./App.css";
 import Logo from "./assets/logo.png";
+import Body from "./components/Body";
 import { fetch } from "./services/ApiRequest";
 
 interface MP3 {
@@ -8,10 +9,10 @@ interface MP3 {
 }
 
 function App() {
-  const [textInput, setTextInput] = useState('');
+  const [textInput, setTextInput] = useState<string>('');
   const [id, setId] = useState('');
   const [response, setResponse] = useState<null | MP3>(null);
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
   
   useEffect(() => {
     if (id) {
@@ -50,18 +51,10 @@ function App() {
         <h2>YT2MP3</h2>
       </div>
 
-      <div id="body">
-        <input
-          type="text"
-          value={textInput}
-          placeholder="YouTube link here..."
-          onChange={(e) => {
-            setTextInput(e.target.value);
-          }}
-        />
-
-        <span>It might take a moment to convert your video :)</span>  
-      </div>
+      <Body
+        textInput={textInput}
+        setTextInput={setTextInput}
+      />
       
       <button
         onClick={() => {
