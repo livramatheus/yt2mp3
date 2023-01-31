@@ -5,7 +5,12 @@ import Body from "./components/Body";
 import { fetch } from "./services/ApiRequest";
 
 interface MP3 {
-  link: string
+  duration: number;
+  link: string;
+  msg: string;
+  progress: number;
+  status: string;
+  title: string;
 }
 
 function App() {
