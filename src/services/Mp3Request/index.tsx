@@ -2,7 +2,7 @@ import axios from "axios";
 
 const requestOptions = {
   method: 'GET',
-  url: 'https://yt-2-mp3-back.cyclic.app',
+  url: 'https://yt-2-mp3-back.cyclic.app/video',
   params: {},
 }
 
