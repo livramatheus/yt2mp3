@@ -10,10 +10,10 @@ const requestOptions = {
   },
 }
 
-const fetch = async (id: string) => {
+const fetchMp3Request = async (id: string) => {
   requestOptions.params = { id };
   const response = await axios.request(requestOptions);
   return response;
 }
 
-export { fetch };
+export { fetchMp3Request };

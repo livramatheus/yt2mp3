@@ -3,8 +3,8 @@ import "./App.css";
 import Body from "./components/Body";
 import DownloadBtn from "./components/DownloadBtn";
 import Logo from "./components/Logo";
-import { fetch } from "./services/ApiRequest";
-import Mp3Response from "./services/ApiRequest/Mp3Response";
+import { fetchMp3Request } from "./services/Mp3Request";
+import Mp3Response from "./services/Mp3Request/Mp3Response";
 
 function App() {
   const [textInput, setTextInput] = useState<string>('');
@@ -17,7 +17,7 @@ function App() {
       const fetchData = () => {
         let interval = setInterval(async function() {
           setDisabled(true);
-          const res = await fetch(id);
+          const res = await fetchMp3Request(id);
           
           if (res.status === 200 && res.data.status === "ok") {
             setResponse(res.data);
