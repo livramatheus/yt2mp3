@@ -2,12 +2,8 @@ import axios from "axios";
 
 const requestOptions = {
   method: 'GET',
-  url: 'https://youtube-mp36.p.rapidapi.com/dl',
+  url: 'https://yt-2-mp3-back.cyclic.app',
   params: {},
-  headers: {
-    'X-RapidAPI-Key': 'fafea167f6msh4ab2ecc90e79ae2p1db2b0jsn5f6687582230',
-    'X-RapidAPI-Host': 'youtube-mp36.p.rapidapi.com'
-  },
 }
 
 const fetchMp3Request = async (id: string) => {
