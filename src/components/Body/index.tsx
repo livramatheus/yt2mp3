@@ -17,7 +17,7 @@ function Body(props: TextInput) {
           }}
         />
 
-        <span>It might take a moment to convert your video :)</span>  
+        <span className="text-fade">It might take a moment to convert your video :)</span>  
     </div>
   )
 }

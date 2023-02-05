@@ -3,7 +3,9 @@ import LogoImage from "../../assets/logo.png";
 function Logo() {
   return (
     <div id="logo">
-      <img src={LogoImage} />
+      <div>
+        <img src={LogoImage} />
+      </div>
       <h3>YT2MP3</h3>
     </div>
   );
