@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import "./App.css";
 import Body from "./components/Body";
 import DownloadBtn from "./components/DownloadBtn";
+import LatestDownloads from "./components/LatestDownloads";
 import Logo from "./components/Logo";
+import Popular from "./components/Popular";
 import { fetchMp3Request } from "./services/Mp3Request";
 import Mp3Response from "./services/Mp3Request/Mp3Response";
 
@@ -46,16 +48,22 @@ function App() {
     <div id="app">
       <Logo />
     
-      <Body
+      {/* <Body
         textInput={textInput}
         setTextInput={setTextInput}
-      />
+      /> */}
       
-      <DownloadBtn
+      {/* <DownloadBtn
         disabled={disabled}
         setId={setId}
         textInput={textInput}
-      />
+      /> */}
+
+      <div id="bottom">
+        <LatestDownloads />
+
+        <Popular />
+      </div>
     </div>
   )
 }

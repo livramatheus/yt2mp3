@@ -4,7 +4,7 @@ function Logo() {
   return (
     <div id="logo">
       <img src={LogoImage} />
-      <h2>YT2MP3</h2>
+      <h3>YT2MP3</h3>
     </div>
   );
 }
