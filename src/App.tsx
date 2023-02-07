@@ -1,4 +1,4 @@
-
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import Banner from "./components/Banner";
 import Downloader from "./components/Downloader";

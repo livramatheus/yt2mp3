@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import Body from "../Body";
 import DownloadBtn from "../DownloadBtn";
 import { fetchMp3Request } from "../../services/Mp3Request";
@@ -10,22 +11,35 @@ function Downloader() {
   const [response, setResponse] = useState<null | Mp3Response>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
 
+  const notify = (message: string) => toast.error(message);
+
+  const clearData = () => {
+    setDisabled(false);
+    setTextInput('');
+    setId('');
+  }
+
   useEffect(() => {
     if (id) {
       const fetchData = () => {
         let interval = setInterval(async function() {
           setDisabled(true);
-          const res = await fetchMp3Request(id);
-          
-          if (res.status === 200 && res.data.status === "ok") {
-            setResponse(res.data);
+          try {
+            const res = await fetchMp3Request(id);
+            
+            if (res.status === 200 && res.data.status === "ok") {
+              setResponse(res.data);
+              clearInterval(interval);
+              setDisabled(false);
+            } else if (res.status === 200 && res.data.status === "fail") {
+              notify('Invalid video link');
+              clearInterval(interval);
+              clearData();
+            }
+          } catch (error: any) {
+            notify(error.message + ". Try again later");
             clearInterval(interval);
-            setDisabled(false);
-          } else if (res.status === 200 && res.data.status === "fail") {
-            alert('Invalid video link');
-            clearInterval(interval);
-            setDisabled(false);
-            setTextInput('');
+            clearData();
           }
         }, 1000);
       }
@@ -53,6 +67,13 @@ function Downloader() {
         disabled={disabled}
         setId={setId}
         textInput={textInput}
+        notify={notify}
+        setTextInput={setTextInput}
+      />
+
+      <ToastContainer
+        autoClose={3000}
+        theme="dark"
       />
     </div>
   );
