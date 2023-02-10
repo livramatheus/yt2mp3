@@ -30,7 +30,7 @@ function Downloader() {
             if (res.status === 200 && res.data.status === "ok") {
               setResponse(res.data);
               clearInterval(interval);
-              setDisabled(false);
+              clearData();
             } else if (res.status === 200 && res.data.status === "fail") {
               notify('Invalid video link');
               clearInterval(interval);
@@ -41,7 +41,7 @@ function Downloader() {
             clearInterval(interval);
             clearData();
           }
-        }, 1000);
+        }, 2000);
       }
 
       fetchData();
