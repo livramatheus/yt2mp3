@@ -4,7 +4,10 @@ function Logo() {
   return (
     <div id="logo">
       <div>
-        <img src={LogoImage} />
+        <img
+          src={LogoImage} 
+          title="YT2MP3"
+        />
       </div>
       <h3>YT2MP3</h3>
     </div>
