@@ -9,7 +9,6 @@ const requestOptions = {
 const fetchMp3Request = async (id: string) => {
   requestOptions.params = { id };
   const response = await axios.request(requestOptions);
-  console.log(response);
   return response;
 }
 
