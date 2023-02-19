@@ -165,7 +165,7 @@ body {
     flex-direction: column;
 }
 
-#popular > div {
+#popular-song-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -209,6 +209,28 @@ body {
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
+}
+
+.popular-title-bar {
+    display: flex;
+    align-items: center;
+}
+
+.popular-title-bar > span {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    width: 0;
+    cursor: pointer;
+    display: flex;
+}
+
+.popular-itm:hover span {
+    opacity: 1;
+    width: fit-content;
+}
+
+.popular-itm:hover .popular-title-bar {
+    gap: 0.4rem;
 }
 
 #latest-downloads {

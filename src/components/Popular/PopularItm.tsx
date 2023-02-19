@@ -1,5 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import PopularSong from "./PopularSong";
+import { BsDownload } from "react-icons/bs";
 
 const sliceText = (text: string): string => {
   let sliced = text.slice(0, 18);
@@ -12,7 +13,7 @@ const sliceText = (text: string): string => {
 }
 
 function PopularItm(props: PopularSong) {
-  const { image, title, artist } = props;
+  const { image, title, artist, id, setId } = props;
 
   return (
     <div className="popular-itm">
@@ -20,7 +21,16 @@ function PopularItm(props: PopularSong) {
         {image ? <img src={image} /> : <Skeleton height="3.6rem" width="3.6rem" />}
       </div>
       <div className="popular-item-info">
-        <h3 title={title ? title : ''}>{title ? sliceText(title) : <Skeleton width="80%" />}</h3>
+        <div className="popular-title-bar">
+          <span>
+            <BsDownload
+              className="download-btn-popular"
+              title="Download Music"
+              onClick={() => { id && setId && setId(id) }}
+            />
+          </span>
+          <h3 title={title ? title : ''}>{title ? sliceText(title) : <Skeleton width="80%" />}</h3>
+        </div>
         <span className="text-fade">{artist ? sliceText(artist) : <Skeleton width="60%" />}</span>
       </div>
     </div>
