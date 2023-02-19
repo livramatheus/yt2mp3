@@ -14,7 +14,7 @@ downloads = [
 function LatestDownloads() {
   return (
     <div id="latest-downloads">
-        <h3>
+        <h3 className="bottom-section-title">
           <BsStopwatch />
           Latest Downloads
         </h3>

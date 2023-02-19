@@ -148,7 +148,7 @@ body {
     gap: 1rem;
 }
 
-#bottom h3 {
+.bottom-section-title {
     margin-top: 0;
     display: flex;
     gap: 0.6rem;
@@ -178,6 +178,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    width: 50%;
 }
 
 .popular-itm * {
@@ -207,6 +208,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;
+    width: 100%;
 }
 
 #latest-downloads {
