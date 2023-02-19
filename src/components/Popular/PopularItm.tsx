@@ -22,14 +22,20 @@ function PopularItm(props: PopularSong) {
       </div>
       <div className="popular-item-info">
         <div className="popular-title-bar">
-          <span>
-            <BsDownload
-              className="download-btn-popular"
-              title="Download Music"
-              onClick={() => { id && setId && setId(id) }}
-            />
-          </span>
-          <h3 title={title ? title : ''}>{title ? sliceText(title) : <Skeleton width="80%" />}</h3>
+          {
+            (id && setId) && (
+              <span>
+                <BsDownload
+                  className="download-btn-popular"
+                  title="Download Music"
+                  onClick={() => { id && setId && setId(id) }}
+                />
+              </span>
+            )
+          }
+          <div>
+            <h3 title={title ? title : ''}>{title ? sliceText(title) : <Skeleton width="80%" />}</h3>
+          </div>
         </div>
         <span className="text-fade">{artist ? sliceText(artist) : <Skeleton width="60%" />}</span>
       </div>

@@ -216,6 +216,10 @@ body {
     align-items: center;
 }
 
+.popular-title-bar > div {
+    width: 100%;
+}
+
 .popular-title-bar > span {
     opacity: 0;
     transition: 0.2s ease-in-out;
@@ -224,7 +228,7 @@ body {
     display: flex;
 }
 
-.popular-itm:hover span {
+.popular-itm:hover .popular-title-bar > span {
     opacity: 1;
     width: fit-content;
 }
