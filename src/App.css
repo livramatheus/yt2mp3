@@ -38,6 +38,10 @@
     height: 100vh;
 }
 
+.Toastify {
+    position: fixed !important;
+}
+
 body {
     background-color: #272226;
     margin: 0;

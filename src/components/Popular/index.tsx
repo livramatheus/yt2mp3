@@ -5,7 +5,7 @@ import Mp3Response from "../../services/Mp3Request/Mp3Response";
 import { fetchPopularRequest } from "../../services/PopularRequest";
 import PopularResponse from "../../services/PopularRequest/PopularResponse";
 import PopularItm from "./PopularItm";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 function Popular() {
 
@@ -13,7 +13,7 @@ function Popular() {
   const [id, setId] = useState('');
   const [response, setResponse] = useState<null | Mp3Response>(null);
 
-  const notify = (message: string) => toast.error(message);
+  const notifyError = (message: string) => toast.error(message);
 
   useEffect(() => {
     if (id) {
@@ -26,11 +26,11 @@ function Popular() {
               setResponse(res.data);
               clearInterval(interval);
             } else if (res.status === 200 && res.data.status === "fail") {
-              notify('Invalid video link');
+              notifyError('Invalid video link');
               clearInterval(interval);
             }
           } catch (error: any) {
-            notify(error.message + ". Try again later");
+            notifyError(error.message + ". Try again later");
             clearInterval(interval);
           }
         }, 2000);
@@ -80,11 +80,6 @@ function Popular() {
         : Array(4).fill(true).map(e => <PopularItm />)
       }
       </div>
-
-      <ToastContainer
-        autoClose={3000}
-        theme="dark"
-      />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Downloader from "./components/Downloader";
 import LatestDownloads from "./components/LatestDownloads";
 import Logo from "./components/Logo";
 import Popular from "./components/Popular";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
           <Popular />
         </div>
       </SkeletonTheme>
+
+      <ToastContainer
+        autoClose={3000}
+        theme="dark"
+      />
     </div>
   )
 }

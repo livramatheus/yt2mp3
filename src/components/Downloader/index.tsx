@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Body from "../Body";
 import DownloadBtn from "../DownloadBtn";
 import { fetchMp3Request } from "../../services/Mp3Request";
@@ -69,11 +69,6 @@ function Downloader() {
         textInput={textInput}
         notify={notify}
         setTextInput={setTextInput}
-      />
-
-      <ToastContainer
-        autoClose={3000}
-        theme="dark"
       />
     </div>
   );
