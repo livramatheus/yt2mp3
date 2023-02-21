@@ -169,7 +169,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1.5rem;
+    align-content: space-between;
+    gap: 0.8rem;
     flex-wrap: wrap;
     height: 9.1rem;
 }
@@ -178,6 +179,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    width: calc(50% - 1rem);
 }
 
 .popular-itm * {
@@ -215,17 +217,20 @@ body {
     align-items: center;
 }
 
-.popular-title-bar > div > h3 {
+.popular-title-bar > div {
     width: 100%;
-    transform: translateX(-1rem);
-    transition: transform 0.2s ease-in-out;
 }
 
 .popular-title-bar > span {
     opacity: 0;
     transition: 0.2s ease-in-out;
+    width: 0;
     cursor: pointer;
     display: flex;
+}
+
+.popular-title-bar > div > h3 {
+    font-size: 1rem;
 }
 
 .popular-itm:hover .popular-title-bar > span {
@@ -233,8 +238,8 @@ body {
     width: fit-content;
 }
 
-.popular-itm:hover .popular-title-bar div h3 {
-    transform: translateX(0.5rem);
+.popular-itm:hover .popular-title-bar {
+    gap: 0.4rem;
 }
 
 #latest-downloads {
