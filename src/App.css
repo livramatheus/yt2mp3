@@ -178,7 +178,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: 50%;
 }
 
 .popular-itm * {
@@ -216,14 +215,15 @@ body {
     align-items: center;
 }
 
-.popular-title-bar > div {
+.popular-title-bar > div > h3 {
     width: 100%;
+    transform: translateX(-1rem);
+    transition: transform 0.2s ease-in-out;
 }
 
 .popular-title-bar > span {
     opacity: 0;
     transition: 0.2s ease-in-out;
-    width: 0;
     cursor: pointer;
     display: flex;
 }
@@ -233,8 +233,8 @@ body {
     width: fit-content;
 }
 
-.popular-itm:hover .popular-title-bar {
-    gap: 0.4rem;
+.popular-itm:hover .popular-title-bar div h3 {
+    transform: translateX(0.5rem);
 }
 
 #latest-downloads {
