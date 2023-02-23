@@ -1,7 +1,7 @@
 interface LatestDownloadSong {
     title: string;
-    artist: string;
-    link: string;
+    id: string;
+    setLatestList(latestList: LatestDownloadSong[]): void;
 }
 
 export default LatestDownloadSong;

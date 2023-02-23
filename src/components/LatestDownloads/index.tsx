@@ -1,17 +1,11 @@
-import { BsStopwatch } from "react-icons/bs";
+import { BsMusicNoteBeamed, BsStopwatch } from "react-icons/bs";
 
 import LatestDownloadItm from "./LatestDownloadItm";
-import LatestDownloadSong from "./LatestDownloadSong";
+import LatestDownloadsProps from "./LatestDownloadsProps";
 
-let downloads: LatestDownloadSong[];
-
-downloads = [
-  { title: "Lorem Sit", artist: "50 Cent", link: "http://www.google.com" },
-  { title: "Dolor Ipsum", artist: "Rah Swish", link: "http://www.google.com" },
-  { title: "Sit Amet", artist: "Fetty Wap", link: "http://www.google.com" }
-];
-
-function LatestDownloads() {
+function LatestDownloads(props: LatestDownloadsProps) {
+  const { latestList, setLatestList } = props;
+  
   return (
     <div id="latest-downloads">
         <h3 className="bottom-section-title">
@@ -21,15 +15,20 @@ function LatestDownloads() {
 
         <div>
           {
-            downloads.map((d) => {
+            latestList ? latestList.map((d) => {
               return (
                 <LatestDownloadItm
                   title={d.title}
-                  artist={d.artist}
-                  link={d.link}
+                  id={d.id}
+                  setLatestList={setLatestList}
                 />
               )
-            })
+            }) : (
+              <div id="no-recent-downloads">
+                <BsMusicNoteBeamed />
+                <span>No recent downloads...</span>
+              </div>
+            )
           }
         </div>
     </div>

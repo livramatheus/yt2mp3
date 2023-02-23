@@ -6,17 +6,24 @@ import { fetchPopularRequest } from "../../services/PopularRequest";
 import PopularResponse from "../../services/PopularRequest/PopularResponse";
 import PopularItm from "./PopularItm";
 import { toast } from 'react-toastify';
+import PopularProps from "./PopularProps";
+import startDownload from "../../Utils/StartDownload";
 
-function Popular() {
+function Popular(props: PopularProps) {
+
+  const { setLatestList } = props;
 
   const [popularSongs, setPopularSongs] = useState<Array<PopularResponse> | null>(null);
   const [id, setId] = useState('');
   const [response, setResponse] = useState<null | Mp3Response>(null);
 
   const notifyError = (message: string) => toast.error(message);
+  const notifyDownloadStarted = (message: string) => toast(message);
 
   useEffect(() => {
     if (id) {
+      notifyDownloadStarted("Download started! Please wait...");
+
       const fetchData = () => {
         let interval = setInterval(async function() {
           try {
@@ -35,15 +42,12 @@ function Popular() {
           }
         }, 2000);
       }
-
       fetchData();
     }
   }, [id]);
 
   useEffect(() => {
-    if (response) {
-      window.location.href = response.link;
-    }
+    startDownload({ response, setLatestList });
   }, [response]);
 
   useEffect(() => {

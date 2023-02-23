@@ -2,21 +2,10 @@ import Skeleton from "react-loading-skeleton";
 import PopularSong from "./PopularSong";
 import { BsDownload } from "react-icons/bs";
 import { toast } from 'react-toastify';
-
-const sliceText = (text: string): string => {
-  let sliced = text.slice(0, 18);
-  
-  if (text.length >= 18) {
-    sliced += "...";
-  }
-
-  return sliced;
-}
+import { sliceText } from "../../Utils/StringFunctions";
 
 function PopularItm(props: PopularSong) {
   const { image, title, artist, id, setId } = props;
-
-  const notifyDownloadStarted = (message: string) => toast(message);
 
   return (
     <div className="popular-itm">
@@ -34,7 +23,6 @@ function PopularItm(props: PopularSong) {
                   onClick={() => {
                     if (id && setId) {
                       setId(id);
-                      notifyDownloadStarted("Download started! Please wait...")
                     }
                   }}
                 />

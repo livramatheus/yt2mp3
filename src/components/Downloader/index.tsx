@@ -4,14 +4,19 @@ import Body from "../Body";
 import DownloadBtn from "../DownloadBtn";
 import { fetchMp3Request } from "../../services/Mp3Request";
 import Mp3Response from "../../services/Mp3Request/Mp3Response";
+import DownloaderProps from "./DownloaderProps";
+import startDownload from "../../Utils/StartDownload";
 
-function Downloader() {
+function Downloader(props: DownloaderProps) {
+  const { setLatestList } = props;
+
   const [textInput, setTextInput] = useState<string>('');
   const [id, setId] = useState('');
   const [response, setResponse] = useState<null | Mp3Response>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
 
   const notify = (message: string) => toast.error(message);
+  const notifyDownloadStarted = (message: string) => toast(message);
 
   const clearData = () => {
     setDisabled(false);
@@ -21,6 +26,8 @@ function Downloader() {
 
   useEffect(() => {
     if (id) {
+      notifyDownloadStarted("Download started! Please wait...");
+      
       const fetchData = () => {
         let interval = setInterval(async function() {
           setDisabled(true);
@@ -28,6 +35,7 @@ function Downloader() {
             const res = await fetchMp3Request(id);
             
             if (res.status === 200 && res.data.status === "ok") {
+              res.data.id = id;
               setResponse(res.data);
               clearInterval(interval);
               clearData();
@@ -49,9 +57,7 @@ function Downloader() {
   }, [id]);
 
   useEffect(() => {
-    if (response) {
-      window.location.href = response.link;
-    }
+    startDownload({ response, setLatestList });
   }, [response]);
 
   return (
