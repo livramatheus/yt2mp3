@@ -1,5 +1,6 @@
 import LatestDownloadSong from "../components/LatestDownloads/LatestDownloadSong";
 import Mp3Response from "../services/Mp3Request/Mp3Response";
+import Ppsmk from "/src/assets/ppsmk.mp3";
 
 interface StartDownloadParams {
   response: Mp3Response | null;
@@ -14,7 +15,7 @@ const startDownload = (params: StartDownloadParams) => {
       
       const locStor = localStorage.getItem('latest');
       if (response.title.toLowerCase().includes("pop smoke")) {
-        const ppsmk = new Audio('/src/assets/ppsmk.mp3');
+        const ppsmk = new Audio(Ppsmk);
         ppsmk.play();
       }
       const curSong = {
