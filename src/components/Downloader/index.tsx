@@ -4,7 +4,7 @@ import Body from "../Body";
 import DownloadBtn from "../DownloadBtn";
 import { fetchMp3Request } from "../../services/Mp3Request";
 import Mp3Response from "../../services/Mp3Request/Mp3Response";
-import DownloaderProps from "./DownloaderProps";
+import DownloaderProps from "../../interfaces/Downloader/DownloaderProps";
 import startDownload from "../../Utils/StartDownload";
 
 function Downloader(props: DownloaderProps) {

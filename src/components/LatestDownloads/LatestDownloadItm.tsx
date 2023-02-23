@@ -5,7 +5,7 @@ import { fetchMp3Request } from "../../services/Mp3Request";
 import Mp3Response from "../../services/Mp3Request/Mp3Response";
 import startDownload from "../../Utils/StartDownload";
 import { sliceText } from "../../Utils/StringFunctions";
-import LatestDownloadItmProps from "./LatestDownloadItmProps";
+import LatestDownloadItmProps from "../../interfaces/LatestDownloads/LatestDownloadItmProps";
 
 function LatestDownloadItm(props: LatestDownloadItmProps) {
   const latestSongId = props.id;

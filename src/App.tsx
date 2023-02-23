@@ -9,7 +9,7 @@ import Logo from "./components/Logo";
 import Popular from "./components/Popular";
 import { ToastContainer } from 'react-toastify';
 import { useState, useEffect } from "react";
-import LatestDownloadSong from "./components/LatestDownloads/LatestDownloadSong";
+import LatestDownloadSong from "./interfaces/LatestDownloads/LatestDownloadSong";
 
 function App() {
   const [latestList, setLatestList] = useState<LatestDownloadSong[] | null>(null);

@@ -1,4 +1,4 @@
-import LatestDownloadSong from "../components/LatestDownloads/LatestDownloadSong";
+import LatestDownloadSong from "../interfaces/LatestDownloads/LatestDownloadSong";
 import Mp3Response from "../services/Mp3Request/Mp3Response";
 
 interface StartDownloadParams {

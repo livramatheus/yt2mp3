@@ -6,7 +6,7 @@ import { fetchPopularRequest } from "../../services/PopularRequest";
 import PopularResponse from "../../services/PopularRequest/PopularResponse";
 import PopularItm from "./PopularItm";
 import { toast } from 'react-toastify';
-import PopularProps from "./PopularProps";
+import PopularProps from "../../interfaces/Popular/PopularProps";
 import startDownload from "../../Utils/StartDownload";
 
 function Popular(props: PopularProps) {

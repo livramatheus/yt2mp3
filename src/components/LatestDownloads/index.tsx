@@ -1,7 +1,7 @@
 import { BsMusicNoteBeamed, BsStopwatch } from "react-icons/bs";
 
 import LatestDownloadItm from "./LatestDownloadItm";
-import LatestDownloadsProps from "./LatestDownloadsProps";
+import LatestDownloadsProps from "../../interfaces/LatestDownloads/LatestDownloadsProps";
 
 function LatestDownloads(props: LatestDownloadsProps) {
   const { latestList, setLatestList } = props;

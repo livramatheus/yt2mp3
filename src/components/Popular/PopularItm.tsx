@@ -1,9 +1,9 @@
 import Skeleton from "react-loading-skeleton";
-import PopularSong from "./PopularSong";
+import PopularItmProps from "../../interfaces/Popular/PopularItmProps";
 import { BsDownload } from "react-icons/bs";
 import { sliceText } from "../../Utils/StringFunctions";
 
-function PopularItm(props: PopularSong) {
+function PopularItm(props: PopularItmProps) {
   const { image, title, artist, id, setId } = props;
 
   return (

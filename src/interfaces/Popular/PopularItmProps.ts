@@ -1,4 +1,4 @@
-interface PopularSong {
+interface PopularItmProps {
   image?: string;
   title?: string;
   artist?: string;
@@ -6,4 +6,4 @@ interface PopularSong {
   setId?(id: string): void;
 }
 
-export default PopularSong;
+export default PopularItmProps;
