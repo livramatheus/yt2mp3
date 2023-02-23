@@ -1,7 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import PopularSong from "./PopularSong";
 import { BsDownload } from "react-icons/bs";
-import { toast } from 'react-toastify';
 import { sliceText } from "../../Utils/StringFunctions";
 
 function PopularItm(props: PopularSong) {
