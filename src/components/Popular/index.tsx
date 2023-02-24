@@ -69,7 +69,7 @@ function Popular(props: PopularProps) {
       {
         popularSongs
         ? (
-          popularSongs.map((song) => {
+          popularSongs.map((song, key) => {
             return (
               <PopularItm
                 image={song.bestThumbnail.url}
@@ -77,11 +77,12 @@ function Popular(props: PopularProps) {
                 artist={song.author.name}
                 id={song.id}
                 setId={setId}
+                key={key}
               />
             )
           })
         )
-        : Array(4).fill(true).map(e => <PopularItm />)
+        : Array(4).fill(true).map((e, key) => <PopularItm key={key} />)
       }
       </div>
     </div>

@@ -15,12 +15,13 @@ function LatestDownloads(props: LatestDownloadsProps) {
 
         <div>
           {
-            latestList ? latestList.map((d) => {
+            latestList ? latestList.map((d, key) => {
               return (
                 <LatestDownloadItm
                   title={d.title}
                   id={d.id}
                   setLatestList={setLatestList}
+                  key={key}
                 />
               )
             }) : (
