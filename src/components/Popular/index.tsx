@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { BsStars } from "react-icons/bs";
-import { fetchMp3Request } from "../../services/Mp3Request";
 import Mp3Response from "../../services/Mp3Request/Mp3Response";
 import { fetchPopularRequest } from "../../services/PopularRequest";
 import PopularResponse from "../../services/PopularRequest/PopularResponse";
 import PopularItm from "./PopularItm";
-import { toast } from 'react-toastify';
 import PopularProps from "../../interfaces/Popular/PopularProps";
 import startDownload from "../../Utils/StartDownload";
+import manageDownloadRequest from "../../Utils/ManageDownloadRequest";
 
 function Popular(props: PopularProps) {
 
@@ -17,33 +16,10 @@ function Popular(props: PopularProps) {
   const [id, setId] = useState('');
   const [response, setResponse] = useState<null | Mp3Response>(null);
 
-  const notifyError = (message: string) => toast.error(message);
-  const notifyDownloadStarted = (message: string) => toast(message);
-
   useEffect(() => {
-    if (id) {
-      notifyDownloadStarted("Download started! Please wait...");
-
-      const fetchData = () => {
-        let interval = setInterval(async function() {
-          try {
-            const res = await fetchMp3Request(id);
-            
-            if (res.status === 200 && res.data.status === "ok") {
-              setResponse(res.data);
-              clearInterval(interval);
-            } else if (res.status === 200 && res.data.status === "fail") {
-              notifyError('Invalid video link');
-              clearInterval(interval);
-            }
-          } catch (error: any) {
-            notifyError(error.message + ". Try again later");
-            clearInterval(interval);
-          }
-        }, 2000);
-      }
-      fetchData();
-    }
+    manageDownloadRequest({
+      id, setId, setResponse
+    });
   }, [id]);
 
   useEffect(() => {
