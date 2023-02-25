@@ -24,6 +24,7 @@ const manageDownloadRequest = (params: ManageDownloadRequestParams) => {
           const res = await fetchMp3Request(id);
           
           if (res.status === 200 && res.data.status === "ok") {
+            res.data.id = id;
             setResponse(res.data);
             clearInterval(interval);
             setId('');
