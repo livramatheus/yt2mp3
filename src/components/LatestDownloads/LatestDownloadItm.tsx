@@ -5,6 +5,7 @@ import startDownload from "../../Utils/StartDownload";
 import { sliceText } from "../../Utils/StringFunctions";
 import LatestDownloadItmProps from "../../interfaces/LatestDownloads/LatestDownloadItmProps";
 import manageDownloadRequest from "../../Utils/ManageDownloadRequest";
+import { isMobile } from "react-device-detect";
 
 function LatestDownloadItm(props: LatestDownloadItmProps) {
   const latestSongId = props.id;
@@ -34,7 +35,7 @@ function LatestDownloadItm(props: LatestDownloadItmProps) {
         }
       >
         <BsDownload />
-      </span>{sliceText(title, 58)}</div>
+      </span>{sliceText(title, isMobile ? 37 : 58)}</div>
   );
 }
 

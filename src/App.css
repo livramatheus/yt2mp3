@@ -332,5 +332,65 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+    body, #root, #app {
+        height: auto;
+        width: 100%;
+    }
 
+    #app {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    #app hr {
+        display: none;
+    }
+
+    #app-content {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+    }
+
+    #left-content, #banner {
+        width: 100%;
+    }
+
+    #banner {
+        display: none;
+    }
+
+    #downloader {
+        padding: 1rem;
+    }
+
+    #downloader h1 {
+        font-size: 1.3rem;
+    }
+
+    #download-btn {
+        width: 70%;
+    }
+
+    .popular-itm {
+        width: 100%;
+    }
+
+    #bottom {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #bottom > * {
+        width: 100%;
+    }
+
+    #latest-downloads > div {
+        height: 9rem
+    }
+
+    #popular-song-list {
+        flex-wrap: nowrap;
+        height: auto;
+    }
 }
