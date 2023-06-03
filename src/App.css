@@ -235,6 +235,7 @@ body {
 
 .popular-title-bar > div > h3 {
     font-size: 1rem;
+    width: 70%;
 }
 
 .popular-itm:hover .popular-title-bar > span {
@@ -244,6 +245,10 @@ body {
 
 .popular-itm:hover .popular-title-bar {
     gap: 0.4rem;
+}
+
+.popular-item-info > span {
+    width: 70%;
 }
 
 #latest-downloads {
@@ -331,6 +336,12 @@ body {
     border: 1px solid rgb(49, 49, 49);
 }
 
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 600px) {
     body, #root, #app {
         height: auto;
@@ -392,5 +403,13 @@ body {
     #popular-song-list {
         flex-wrap: nowrap;
         height: auto;
+    }
+
+    .popular-title-bar > div > h3 {
+        width: 80%;
+    }
+
+    .popular-item-info > span {
+        width: 80%;
     }
 }
