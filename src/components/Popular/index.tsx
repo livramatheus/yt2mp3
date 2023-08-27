@@ -45,15 +45,15 @@ function Popular(props: PopularProps) {
       {
         popularSongs
         ? (
-          popularSongs.map((song, key) => {
+          popularSongs.map((song) => {
             return (
               <PopularItm
-                image={song.bestThumbnail.url}
+                image={song.image}
                 title={song.title}
-                artist={song.author.name}
+                artist={song.artist}
                 id={song.id}
                 setId={setId}
-                key={key}
+                key={song.id}
               />
             )
           })
