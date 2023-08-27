@@ -112,7 +112,7 @@
         <a href="https://rapidapi.com/ytjar/api/youtube-mp36">YouTube MP3</a> - For MP3 conversion
     </li>
     <li>
-        <a href="https://rapidapi.com/marindelija/api/youtube-search-results">YouTube Search Results</a> - For popular songs
+        <a href="https://rapidapi.com/Snowflake107/api/simple-youtube-search">Simple YouTube Search</a> - For popular songs
     </li>
 </ul>
 
@@ -303,7 +303,7 @@ modern youtube to mp3 downloader tool clean minimalistic website, design, ux/ui,
         <a href="https://rapidapi.com/ytjar/api/youtube-mp36">YouTube MP3</a> - Para a conversão do MP3
     </li>
     <li>
-        <a href="https://rapidapi.com/marindelija/api/youtube-search-results">YouTube Search Results</a> - Para as músicas em tendência
+        <a href="https://rapidapi.com/Snowflake107/api/simple-youtube-search">Simple YouTube Search</a> - Para as músicas em tendência
     </li>
 </ul>
 
